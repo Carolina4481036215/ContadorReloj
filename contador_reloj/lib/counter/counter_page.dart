@@ -1,7 +1,6 @@
 import 'package:contador_reloj/cubit/cubit_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wearable_rotary/wearable_rotary.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
@@ -26,14 +25,6 @@ class _CounterViewState extends State<CounterView> {
   @override
   void initState() {
     super.initState();
-    // Listen to rotary events
-    rotaryEvents.listen((RotaryEvent event) {
-      if (event.direction == RotaryDirection.clockwise) {
-        context.read<CounterCubit>().increment();
-      } else if (event.direction == RotaryDirection.counterClockwise) {
-        context.read<CounterCubit>().decrement();
-      }
-    });
   }
 
   @override
